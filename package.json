@@ -1,0 +1,35 @@
+{
+  "name": "binary-install",
+  "version": "1.0.0",
+  "description": "Install binary applications via npm",
+  "main": "./index.js",
+  "scripts": {
+    "clean": "rm -rf ./node_modules",
+    "fmt": "prettier --write **/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EverlastingBugstopper/binary-install.git"
+  },
+  "keywords": [
+    "install",
+    "binary",
+    "global"
+  ],
+  "author": "Avery Harnish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EverlastingBugstopper/binary-install/issues"
+  },
+  "homepage": "https://github.com/EverlastingBugstopper/binary-install#readme",
+  "devDependencies": {
+    "axios": "^0.19.0",
+    "fs": "0.0.2",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "tar": "^5.0.5"
+  }
+}
