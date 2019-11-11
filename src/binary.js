@@ -2,6 +2,8 @@ const { existsSync, mkdirSync } = require("fs");
 const { homedir } = require("os");
 const { join } = require("path");
 const { spawnSync } = require("child_process");
+const { URL } = require("universal-url");
+const envPaths = require("env-paths");
 
 const axios = require("axios");
 const tar = require("tar");
@@ -9,6 +11,31 @@ const rimraf = require("rimraf");
 
 class Binary {
   constructor(url, data) {
+    if (typeof url !== "string") {
+      errors.push("url must be a string");
+    } else {
+      try {
+        new URL(url);
+      } catch (e) {
+        errors.push(e);
+      }
+    }
+    let errors = [];
+    if (data.name && typeof data.name !== "string") {
+      errors.push("name must be a string");
+    }
+    if (data.installDirectory && typeof data.installDirectory !== "string") {
+      errors.push("installDirectory must be a string");
+    }
+    if (!data.installDirectory && !data.name) {
+      errors.push("You must specify either name or installDirectory");
+    }
+    if (errors.length > 0) {
+      console.error("Your Binary constructor is invalid:");
+      errors.forEach(error => {
+        console.error(error);
+      });
+    }
     this.url = url;
     this.name = data.name || -1;
     this.installDirectory = data.installDirectory || -1;
@@ -18,26 +45,22 @@ class Binary {
 
   _getInstallDirectory() {
     if (this.installDirectory === -1) {
-      if (this.name === -1) {
-        throw "You must provide either a name or an install directory to install this tool";
-      }
-      const rootInstall = join(homedir(), ".npm-binaries");
+      const rootInstall = envPaths(this.name, { suffix: "" }).config;
       if (!existsSync(rootInstall)) {
         mkdirSync(rootInstall);
       }
-      this.installDirectory = join(homedir(), ".npm-binaries", this.name);
+      this.installDirectory = rootInstall;
     }
     return this.installDirectory;
   }
 
   _getBinaryDirectory() {
-    if (this.binaryDirectory === -1 && this.installDirectory === -1) {
-      throw `${this.name ? this.name : "Your package"} has not been installed!`;
-    } else if (this.installDirectory !== -1) {
-      const binaryDirectory = join(this.installDirectory, "bin");
-      if (existsSync(binaryDirectory)) {
-        this.binaryDirectory = binaryDirectory;
-      }
+    const installDirectory = this._getInstallDirectory();
+    const binaryDirectory = join(this.installDirectory, "bin");
+    if (existsSync(binaryDirectory)) {
+      this.binaryDirectory = binaryDirectory;
+    } else {
+      throw `You have not installed ${name ? name : "this package"}`;
     }
     return this.binaryDirectory;
   }
