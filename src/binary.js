@@ -45,12 +45,13 @@ class Binary {
 
   _getInstallDirectory() {
     if (this.installDirectory === -1) {
-      const rootInstall = envPaths(this.name, { suffix: "" }).config;
+      const rootInstall = envPaths(this.name).config;
       if (!existsSync(rootInstall)) {
         mkdirSync(rootInstall);
       }
       this.installDirectory = rootInstall;
     }
+    console.log(this.installDirectory)
     return this.installDirectory;
   }
 
@@ -111,6 +112,15 @@ class Binary {
         console.error("Error fetching release", e.message);
         throw e;
       });
+  }
+
+  uninstall() {
+    if (existsSync(this._getInstallDirectory())) {
+      console.log(`removing ${this.installDirectory}`)
+      rimraf.sync(this.installDirectory);
+    } else {
+      throw `${this.name ? this.name : "This package"} has not been installed.`
+    }
   }
 
   run() {
