@@ -51,7 +51,6 @@ class Binary {
       }
       this.installDirectory = rootInstall;
     }
-    console.log(this.installDirectory)
     return this.installDirectory;
   }
 
@@ -116,10 +115,12 @@ class Binary {
 
   uninstall() {
     if (existsSync(this._getInstallDirectory())) {
-      console.log(`removing ${this.installDirectory}`)
       rimraf.sync(this.installDirectory);
+      console.log(
+        `${this.name ? this.name : "Your package"} has been uninstalled`
+      );
     } else {
-      throw `${this.name ? this.name : "This package"} has not been installed.`
+      throw `${this.name ? this.name : "This package"} has not been installed.`;
     }
   }
 
