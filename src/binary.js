@@ -119,8 +119,6 @@ class Binary {
       console.log(
         `${this.name ? this.name : "Your package"} has been uninstalled`
       );
-    } else {
-      throw `${this.name ? this.name : "This package"} has not been installed.`;
     }
   }
 
