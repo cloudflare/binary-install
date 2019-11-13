@@ -38,18 +38,14 @@ class Binary {
     }
     this.url = url;
     this.name = data.name || -1;
-    this.installDirectory = data.installDirectory || -1;
+    this.installDirectory = data.installDirectory || envPaths(this.name).config;
     this.binaryDirectory = -1;
     this.binaryPath = -1;
   }
 
   _getInstallDirectory() {
-    if (this.installDirectory === -1) {
-      const rootInstall = envPaths(this.name).config;
-      if (!existsSync(rootInstall)) {
-        mkdirSync(rootInstall);
-      }
-      this.installDirectory = rootInstall;
+    if (!existsSync(this.installDirectory)) {
+      mkdirSync(this.installDirectory);
     }
     return this.installDirectory;
   }
