@@ -11,7 +11,7 @@ This library provides a single class `Binary` that takes a download url and some
 | name             | The name of your binary                       |
 | installDirectory | A path to the directory to install the binary |
 
-If an `installDirectory` is not provided, the binary will be installed at `~/.npm-binaries/${name}/bin`
+If an `installDirectory` is not provided, the binary will be installed at your OS specific config directory. On MacOS it defaults to `~/Library/Preferences/${name}-nodejs`
 
 After your `Binary` has been created, you can run `.install()` to install the binary, and `.run()` to run it.
 
