@@ -9,7 +9,6 @@
   "scripts": {
     "postinstall": "node -e 'require(\"./binary.js\").install()'",
     "preinstall": "node -e 'require(\"./binary.js\").uninstall()'",
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
