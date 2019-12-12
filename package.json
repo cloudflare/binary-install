@@ -1,6 +1,6 @@
 {
   "name": "binary-install",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Install binary applications via npm",
   "main": "index.js",
   "scripts": {
