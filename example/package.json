@@ -8,7 +8,7 @@
   },
   "scripts": {
     "postinstall": "node -e 'require(\"./binary.js\").install()'",
-    "preinstall": "node -e 'require(\"./binary.js\").uninstall()'",
+    "preinstall": "node -e 'require(\"./binary.js\").uninstall()'"
   },
   "repository": {
     "type": "git",
