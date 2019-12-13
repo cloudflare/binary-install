@@ -57,7 +57,7 @@ class Binary {
     if (existsSync(binaryDirectory)) {
       this.binaryDirectory = binaryDirectory;
     } else {
-      throw `You have not installed ${name ? name : "this package"}`;
+      throw `You have not installed ${this.name ? this.name : "this package"}`;
     }
     return this.binaryDirectory;
   }
