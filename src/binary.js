@@ -1,9 +1,10 @@
-const { existsSync, mkdirSync } = require("fs");
+const { existsSync } = require("fs");
 const { homedir } = require("os");
 const { join } = require("path");
 const { spawnSync } = require("child_process");
 const { URL } = require("universal-url");
 const envPaths = require("env-paths");
+const mkdirp = require("mkdirp");
 
 const axios = require("axios");
 const tar = require("tar");
@@ -45,7 +46,7 @@ class Binary {
 
   _getInstallDirectory() {
     if (!existsSync(this.installDirectory)) {
-      mkdirSync(this.installDirectory);
+      mkdirp.sync(this.installDirectory);
     }
     return this.installDirectory;
   }
@@ -73,7 +74,7 @@ class Binary {
   install() {
     const dir = this._getInstallDirectory();
     if (!existsSync(dir)) {
-      mkdirSync(dir);
+      mkdirp.sync(dir);
     }
 
     this.binaryDirectory = join(dir, "bin");
@@ -82,7 +83,7 @@ class Binary {
       rimraf.sync(this.binaryDirectory);
     }
 
-    mkdirSync(this.binaryDirectory);
+    mkdirp.sync(this.binaryDirectory);
 
     console.log("Downloading release", this.url);
 
