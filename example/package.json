@@ -7,8 +7,8 @@
     "example-package-name": "./run.js"
   },
   "scripts": {
-    "postinstall": "node -e 'require(\"./binary.js\").install()'",
-    "preinstall": "node -e 'require(\"./binary.js\").uninstall()'"
+    "postinstall": "node ./install.js",
+    "preinstall": "node ./uninstall.js"
   },
   "repository": {
     "type": "git",

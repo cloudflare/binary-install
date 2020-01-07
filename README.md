@@ -17,4 +17,4 @@ After your `Binary` has been created, you can run `.install()` to install the bi
 
 ### Example
 
-This is meant to be used as a library - create your `Binary` with your desired options, then call `.install()` in the `postinstall` of your `package.json`, `.run()` in the `bin` section of your `package.json`, and `.uninstall()` in the `preuninstall` section of your `package.json`. See [this example project](/example) to see how to create an npm package that installs and runs a binary using the Github releases API. 
+This is meant to be used as a library - create your `Binary` with your desired options, then call `.install()` in the `postinstall` of your `package.json`, `.run()` in the `bin` section of your `package.json`, and `.uninstall()` in the `preuninstall` section of your `package.json`. See [this example project](/example) to see how to create an npm package that installs and runs a binary using the Github releases API.
