@@ -39,7 +39,7 @@ class Binary {
     }
     this.url = url;
     this.name = data.name || -1;
-    this.installDirectory = data.installDirectory || envPaths(this.name).config;
+    this.installDirectory = data.installDirectory || join(__dirname, "bin");
     this.binaryDirectory = -1;
     this.binaryPath = -1;
   }
