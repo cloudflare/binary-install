@@ -1,8 +1,8 @@
-const {existsSync} = require("fs");
-const {homedir} = require("os");
-const {join} = require("path");
-const {spawnSync} = require("child_process");
-const {URL} = require("universal-url");
+const { existsSync } = require("fs");
+const { homedir } = require("os");
+const { join } = require("path");
+const { spawnSync } = require("child_process");
+const { URL } = require("universal-url");
 const envPaths = require("env-paths");
 const mkdirp = require("mkdirp");
 
@@ -33,7 +33,9 @@ class Binary {
     }
     if (errors.length > 0) {
       console.error("Your Binary constructor is invalid:");
-      errors.forEach(error => { console.error(error); });
+      errors.forEach(error => {
+        console.error(error);
+      });
     }
     this.url = url;
     this.name = data.name || -1;
@@ -85,25 +87,27 @@ class Binary {
 
     console.log("Downloading release", this.url);
 
-    return axios({url : this.url, responseType : "stream"})
-        .then(res => {
-          res.data.pipe(tar.x({strip : 1, C : this.binaryDirectory}));
-        })
-        .then(() => {
-          console.log(
-              `${this.name ? this.name : "Your package"} has been installed!`);
-        })
-        .catch(e => {
-          console.error("Error fetching release", e.message);
-          throw e;
-        });
+    return axios({ url: this.url, responseType: "stream" })
+      .then(res => {
+        res.data.pipe(tar.x({ strip: 1, C: this.binaryDirectory }));
+      })
+      .then(() => {
+        console.log(
+          `${this.name ? this.name : "Your package"} has been installed!`
+        );
+      })
+      .catch(e => {
+        console.error("Error fetching release", e.message);
+        throw e;
+      });
   }
 
   uninstall() {
     if (existsSync(this._getInstallDirectory())) {
       rimraf.sync(this.installDirectory);
       console.log(
-          `${this.name ? this.name : "Your package"} has been uninstalled`);
+        `${this.name ? this.name : "Your package"} has been uninstalled`
+      );
     }
   }
 
@@ -111,7 +115,7 @@ class Binary {
     const binaryPath = this._getBinaryPath();
     const [, , ...args] = process.argv;
 
-    const options = {cwd : process.cwd(), stdio : "inherit"};
+    const options = { cwd: process.cwd(), stdio: "inherit" };
 
     const result = spawnSync(binaryPath, args, options);
 
