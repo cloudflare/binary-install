@@ -39,7 +39,7 @@ class Binary {
     }
     this.url = url;
     this.name = data.name || -1;
-    this.installDirectory = data.installDirectory || envPaths(this.name).config;
+    this.installDirectory = data.installDirectory || join(__dirname, "bin");
     this.binaryDirectory = -1;
     this.binaryPath = -1;
   }
@@ -87,17 +87,9 @@ class Binary {
 
     console.log("Downloading release", this.url);
 
-    return axios({
-      url: this.url,
-      responseType: "stream"
-    })
+    return axios({ url: this.url, responseType: "stream" })
       .then(res => {
-        res.data.pipe(
-          tar.x({
-            strip: 1,
-            C: this.binaryDirectory
-          })
-        );
+        res.data.pipe(tar.x({ strip: 1, C: this.binaryDirectory }));
       })
       .then(() => {
         console.log(
@@ -123,10 +115,7 @@ class Binary {
     const binaryPath = this._getBinaryPath();
     const [, , ...args] = process.argv;
 
-    const options = {
-      cwd: process.cwd(),
-      stdio: "inherit"
-    };
+    const options = { cwd: process.cwd(), stdio: "inherit" };
 
     const result = spawnSync(binaryPath, args, options);
 
