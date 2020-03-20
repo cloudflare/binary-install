@@ -1,0 +1,14 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "binary-install-example -ccc"
+  },
+  "author": "Avery Harnish",
+  "license": "MIT",
+  "devDependencies": {
+    "binary-install-example": "file:../../npm"
+  }
+}

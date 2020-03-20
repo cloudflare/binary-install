@@ -1,0 +1,19 @@
+name: Test binary-install
+
+on: [pull_request]
+
+env:
+  WORKING_DIR: ./examples/rust/tests/e2e
+
+jobs:
+  binary-install:
+    name: Test binary-install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install JavaScript dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
