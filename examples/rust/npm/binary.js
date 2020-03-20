@@ -11,10 +11,10 @@ const os = require("os");
 const { join } = require("path");
 const cTable = require("console.table");
 
-const error = (msg) => {
-  console.error(msg)
+const error = msg => {
+  console.error(msg);
   process.exit(1);
-}
+};
 
 const { version, name, repository } = require("./package.json");
 
@@ -48,7 +48,7 @@ const getPlatform = () => {
     ) {
       return supportedPlatform.RUST_TARGET;
     }
-  };
+  }
 
   error(
     `Platform with type "${type}" and architecture "${architecture}" is not supported by ${name}.\nYour system must be one of the following:\n\n${cTable.getTable(
