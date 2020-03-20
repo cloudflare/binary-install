@@ -1,6 +1,6 @@
 {
   "name": "binary-install",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Install binary applications via npm",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "env-paths": "^2.2.0",
     "mkdirp": "^0.5.3",
     "rimraf": "^3.0.2",
     "tar": "^5.0.5",

@@ -3,7 +3,6 @@ const { homedir } = require("os");
 const { join } = require("path");
 const { spawnSync } = require("child_process");
 const { URL } = require("universal-url");
-const envPaths = require("env-paths");
 const mkdirp = require("mkdirp");
 
 const axios = require("axios");
