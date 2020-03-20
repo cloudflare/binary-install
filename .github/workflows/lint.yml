@@ -1,0 +1,34 @@
+name: Linters
+
+on: [pull_request]
+
+jobs:
+  binary-install:
+    name: JavaScript linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install JavaScript dependencies
+        run: npm install
+
+      - name: Check JavaScript Formatting
+        run: npm run fmt:check
+
+  rust-example:
+    name: Rust Example Linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Rust
+        run: |
+          rustup update stable
+          rustup default stable
+          rustup component add rustfmt
+
+      - name: Check Rust Formatting
+        working-directory: ./examples/rust
+        run: cargo fmt -- --check
+        
+
