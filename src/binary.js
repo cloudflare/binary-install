@@ -1,8 +1,8 @@
-const {existsSync} = require("fs");
-const {homedir} = require("os");
-const {join} = require("path");
-const {spawnSync} = require("child_process");
-const {URL} = require("universal-url");
+const { existsSync } = require("fs");
+const { homedir } = require("os");
+const { join } = require("path");
+const { spawnSync } = require("child_process");
+const { URL } = require("universal-url");
 const mkdirp = require("mkdirp");
 
 const axios = require("axios");
@@ -37,7 +37,9 @@ class Binary {
     }
     if (errors.length > 0) {
       let errorMsg = "Your Binary constructor is invalid:";
-      errors.forEach(error => { errorMsg += error; });
+      errors.forEach(error => {
+        errorMsg += error;
+      });
       error(errorMsg);
     }
     this.url = url;
@@ -90,22 +92,26 @@ class Binary {
 
     console.log(`Downloading release from ${this.url}`);
 
-    return axios({url : this.url, responseType : "stream"})
-        .then(res => {
-          res.data.pipe(tar.x({strip : 1, C : this.binaryDirectory}));
-        })
-        .then(() => {
-          console.log(
-              `${this.name ? this.name : "Your package"} has been installed!`);
-        })
-        .catch(e => { error(`Error fetching release: ${e.message}`); });
+    return axios({ url: this.url, responseType: "stream" })
+      .then(res => {
+        res.data.pipe(tar.x({ strip: 1, C: this.binaryDirectory }));
+      })
+      .then(() => {
+        console.log(
+          `${this.name ? this.name : "Your package"} has been installed!`
+        );
+      })
+      .catch(e => {
+        error(`Error fetching release: ${e.message}`);
+      });
   }
 
   uninstall() {
     if (existsSync(this._getInstallDirectory())) {
       rimraf.sync(this.installDirectory);
       console.log(
-          `${this.name ? this.name : "Your package"} has been uninstalled`);
+        `${this.name ? this.name : "Your package"} has been uninstalled`
+      );
     }
   }
 
@@ -113,7 +119,7 @@ class Binary {
     const binaryPath = this._getBinaryPath();
     const [, , ...args] = process.argv;
 
-    const options = {cwd : process.cwd(), stdio : "inherit"};
+    const options = { cwd: process.cwd(), stdio: "inherit" };
 
     const result = spawnSync(binaryPath, args, options);
 
