@@ -8,7 +8,7 @@
   },
   "private": true,
   "scripts": {
-    "test": "npm i && binary-install-example -cccc | node ./index.js"
+    "test": "binary-install-example -cccc | node ./index.js"
   },
   "author": "Avery Harnish",
   "license": "MIT",
