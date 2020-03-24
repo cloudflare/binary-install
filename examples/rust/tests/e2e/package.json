@@ -7,7 +7,7 @@
     "binary-install-example": "./run.js"
   },
   "scripts": {
-    "test": "binary-install-example -ccc"
+    "test": "binary-install-example -cccc | node ./index.js"
   },
   "author": "Avery Harnish",
   "license": "MIT",
