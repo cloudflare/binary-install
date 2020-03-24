@@ -7,11 +7,11 @@
     "binary-install-example": "./run.js"
   },
   "scripts": {
-    "test": "binary-install-example -cccc | node ./index.js"
+    "test": "npm i && binary-install-example -cccc | node ./index.js"
   },
   "author": "Avery Harnish",
   "license": "MIT",
   "devDependencies": {
-    "binary-install": "file:../../npm"
+    "binary-install-example": "file:../../npm"
   }
 }
