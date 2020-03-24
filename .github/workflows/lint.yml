@@ -13,7 +13,7 @@ jobs:
         run: npm i
 
       - name: Check JavaScript Formatting
-        run: lerna run fmt:check
+        run: npm run fmt:check
 
   rust-example:
     name: Rust Example Linter
