@@ -10,10 +10,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install JavaScript dependencies
-        run: npm install
+        run: npm i
 
       - name: Check JavaScript Formatting
-        run: npm run fmt:check
+        run: lerna run fmt:check
 
   rust-example:
     name: Rust Example Linter
@@ -28,7 +28,7 @@ jobs:
           rustup component add rustfmt
 
       - name: Check Rust Formatting
-        working-directory: ./examples/rust
+        working-directory: ./example-binary
         run: cargo fmt -- --check
         
 

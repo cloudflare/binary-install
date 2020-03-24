@@ -1,5 +1,5 @@
-const assert = require("assert")
+const assert = require("assert");
 
-process.stdin.on('data', function (data) {
-  assert(data.toString().includes(4))
+process.stdin.on("data", function(data) {
+  assert(data.toString().includes(4));
 });

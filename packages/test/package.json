@@ -8,11 +8,14 @@
   },
   "private": true,
   "scripts": {
-    "test": "binary-install-example -cccc | node ./index.js"
+    "test": "binary-install-example -cccc | node ./index.js",
+    "fmt": "prettier --write **/*.js",
+    "fmt:check": "prettier --check **/*.js"
   },
   "author": "Avery Harnish",
   "license": "MIT",
   "devDependencies": {
-    "binary-install-example": "1.0.0"
+    "binary-install-example": "1.0.0",
+    "prettier": "^1.19.1"
   }
 }

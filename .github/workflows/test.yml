@@ -9,5 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install JavaScript dependencies
+        run: npm i
+
       - name: Run tests
-        run: lerna run test
+        run: npm test

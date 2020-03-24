@@ -1,6 +1,11 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "test": "lerna run test",
+    "fmt": "lerna run fmt",
+    "fmt:check": "lerna run fmt:check"
+  },
   "devDependencies": {
     "lerna": "^3.20.2"
   }

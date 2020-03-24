@@ -9,7 +9,9 @@
   },
   "scripts": {
     "postinstall": "node ./install.js",
-    "preuninstall": "node ./uninstall.js"
+    "preuninstall": "node ./uninstall.js",
+    "fmt": "prettier --write **/*.js",
+    "fmt:check": "prettier --check **/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
   "dependencies": {
     "binary-install": "^0.1.0",
     "console.table": "^0.10.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
   }
 }

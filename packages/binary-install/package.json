@@ -4,8 +4,8 @@
   "description": "Install binary applications via npm",
   "main": "./index.js",
   "scripts": {
-    "fmt": "prettier --write **/*.js && prettier --write ./examples/rust/npm/**/*.js",
-    "fmt:check": "prettier --check **/*.js && prettier --check ./examples/rust/npm/**/*.js"
+    "fmt": "prettier --write **/*.js",
+    "fmt:check": "prettier --check **/*.js"
   },
   "repository": {
     "type": "git",
