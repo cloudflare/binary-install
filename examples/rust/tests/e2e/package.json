@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "binary-install-example": "./run.js"
+  },
   "scripts": {
     "test": "binary-install-example -ccc"
   },
