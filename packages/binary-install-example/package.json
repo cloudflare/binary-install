@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "An example package for binary-install",
   "main": "binary.js",
+  "private": true,
   "bin": {
     "binary-install-example": "./run.js"
   },

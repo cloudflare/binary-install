@@ -6,6 +6,7 @@
   "bin": {
     "binary-install-example": "./run.js"
   },
+  "private": true,
   "scripts": {
     "test": "npm i && binary-install-example -cccc | node ./index.js"
   },
