@@ -8,8 +8,7 @@
   },
   "scripts": {
     "postinstall": "node ./install.js",
-    "preinstall": "node ./uninstall.js",
-    "test": "binary-install-example -ccc"
+    "preinstall": "node ./uninstall.js"
   },
   "repository": {
     "type": "git",
