@@ -2,10 +2,6 @@ name: Test binary-install
 
 on: [pull_request]
 
-env:
-  EXAMPLE_DIR: ./examples/rust/npm
-  E2E_DIR: ./examples/rust/tests/e2e
-
 jobs:
   binary-install:
     name: Test binary-install
@@ -13,13 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install binary-install
-        run: npm install
-
-      - name: Install binary-install-example
-        working-directory: ${{ env.EXAMPLE_DIR}}
+      - name: Install JavaScript dependencies
         run: npm install
 
       - name: Run tests
-        working-directory: ${{ env.E2E_DIR }}
-        run: npm test
+        run: lerna run test
