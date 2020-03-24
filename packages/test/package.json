@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "tests for binary-install",
+  "main": "binary.js",
+  "bin": {
+    "binary-install-example": "./run.js"
+  },
+  "private": true,
+  "scripts": {
+    "test": "binary-install-example -cccc | node ./index.js",
+    "fmt": "prettier --write **/*.js",
+    "fmt:check": "prettier --check **/*.js"
+  },
+  "author": "Avery Harnish",
+  "license": "MIT",
+  "devDependencies": {
+    "binary-install-example": "^1.0.0",
+    "prettier": "^1.19.1"
+  }
+}

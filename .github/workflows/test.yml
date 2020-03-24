@@ -1,0 +1,16 @@
+name: Test binary-install
+
+on: [pull_request]
+
+jobs:
+  binary-install:
+    name: Test binary-install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install JavaScript dependencies
+        run: npm i
+
+      - name: Run tests
+        run: npm test

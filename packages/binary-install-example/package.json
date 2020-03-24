@@ -1,0 +1,33 @@
+{
+  "name": "binary-install-example",
+  "version": "1.0.0",
+  "description": "An example package for binary-install",
+  "main": "binary.js",
+  "private": true,
+  "bin": {
+    "binary-install-example": "./run.js"
+  },
+  "scripts": {
+    "postinstall": "node ./install.js",
+    "preuninstall": "node ./uninstall.js",
+    "fmt": "prettier --write **/*.js",
+    "fmt:check": "prettier --check **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EverlastingBugstopper/binary-install"
+  },
+  "author": "Avery Harnish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EverlastingBugstopper/binary-install/issues"
+  },
+  "homepage": "https://github.com/EverlastingBugstopper/binary-install#readme",
+  "dependencies": {
+    "binary-install": "^0.1.0",
+    "console.table": "^0.10.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
+}
