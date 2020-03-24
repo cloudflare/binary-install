@@ -12,6 +12,6 @@
   "author": "Avery Harnish",
   "license": "MIT",
   "devDependencies": {
-    "binary-install-example": "file:../../npm"
+    "binary-install": "file:../../npm"
   }
 }
