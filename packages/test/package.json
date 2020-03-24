@@ -1,7 +1,7 @@
 {
-  "name": "e2e",
+  "name": "test",
   "version": "1.0.0",
-  "description": "",
+  "description": "tests for binary-install",
   "main": "binary.js",
   "bin": {
     "binary-install-example": "./run.js"
@@ -15,7 +15,7 @@
   "author": "Avery Harnish",
   "license": "MIT",
   "devDependencies": {
-    "binary-install-example": "1.0.0",
+    "binary-install-example": "^1.0.0",
     "prettier": "^1.19.1"
   }
 }
