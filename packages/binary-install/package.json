@@ -7,6 +7,9 @@
     "fmt": "prettier --write **/*.js",
     "fmt:check": "prettier --check **/*.js"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EverlastingBugstopper/binary-install.git"
@@ -27,9 +30,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "mkdirp": "^0.5.3",
     "rimraf": "^3.0.2",
-    "tar": "^5.0.5",
-    "universal-url": "^2.0.0"
+    "tar": "^6.0.2"
   }
 }
