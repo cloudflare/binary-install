@@ -1,11 +1,11 @@
 [package]
 name = "binary-install-example"
 version = "1.0.0"
-authors = ["Avery Harnish <averyharnish@gmail.com>"]
+authors = ["Wrangler Team <wrangler@cloudflare.com>"]
 edition = "2018"
 description = "An example binary to test out https://npmjs.com/package/binary-install"
 homepage = "https://npmjs.com/package/binary-install"
-repository = "https://github.com/EverlastingBugstopper/binary-install"
+repository = "https://github.com/cloudflare/binary-install"
 
 [dependencies]
 clap = "2.33.0"

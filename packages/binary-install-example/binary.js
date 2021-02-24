@@ -6,7 +6,7 @@
 // to construct said URL. You could even A/B test two different binary distribution
 // solutions!
 
-const { Binary } = require("binary-install");
+const { Binary } = require("@cloudflare/binary-install");
 const os = require("os");
 const { join } = require("path");
 const cTable = require("console.table");
@@ -60,7 +60,7 @@ const getPlatform = () => {
 const getBinary = () => {
   const platform = getPlatform();
   // the url for this binary is constructed from values in `package.json`
-  // https://github.com/EverlastingBugstopper/binary-install/releases/download/v1.0.0/binary-install-example-v1.0.0-x86_64-apple-darwin.tar.gz
+  // https://github.com/cloudflare/binary-install/releases/download/v1.0.0/binary-install-example-v1.0.0-x86_64-apple-darwin.tar.gz
   const url = `${repository.url}/releases/download/v${version}/${name}-v${version}-${platform}.tar.gz`;
   return new Binary(url, { name });
 };

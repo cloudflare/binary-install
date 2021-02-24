@@ -15,16 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EverlastingBugstopper/binary-install"
+    "url": "https://github.com/cloudflare/binary-install"
   },
-  "author": "Avery Harnish",
+  "author": "Wrangler Team <wrangler@cloudflare.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EverlastingBugstopper/binary-install/issues"
+    "url": "https://github.com/cloudflare/binary-install/issues"
   },
-  "homepage": "https://github.com/EverlastingBugstopper/binary-install#readme",
+  "homepage": "https://github.com/cloudflare/binary-install#readme",
   "dependencies": {
-    "binary-install": "^0.1.0",
+    "@cloudflare/binary-install": "^0.2.0",
     "console.table": "^0.10.0"
   },
   "devDependencies": {
