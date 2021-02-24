@@ -8,6 +8,6 @@
     "fmt:check": "lerna run fmt:check"
   },
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "lerna": "^3.22.1"
   }
 }
