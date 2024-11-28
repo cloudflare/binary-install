@@ -56,7 +56,7 @@ class Binary {
 
   _getBinaryDirectory() {
     const installDirectory = this._getInstallDirectory();
-    const binaryDirectory = join(this.installDirectory, "bin");
+    const binaryDirectory = join(installDirectory, "bin");
     if (existsSync(binaryDirectory)) {
       this.binaryDirectory = binaryDirectory;
     } else {
@@ -76,10 +76,6 @@ class Binary {
 
   install() {
     const dir = this._getInstallDirectory();
-    if (!existsSync(dir)) {
-      mkdirSync(dir, { recursive: true });
-    }
-
     this.binaryDirectory = join(dir, "bin");
 
     if (existsSync(this.binaryDirectory)) {
